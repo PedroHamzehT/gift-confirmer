@@ -1,0 +1,14 @@
+<div class="flex-column">
+  <div class="gifts flex-row">
+    <% @gifts.each do |gift| %>
+      <div class="gift"><%= gift.name %></div>
+    <% end %>
+  </div>
+
+  <%= form_with model: Gift.new, url: "/gifts", method: :post do |form| %>
+    <%= form.label :name, "Gift name" %>
+    <%= form.text_field :name %>
+
+    <%= form.submit "Create" %>
+  <% end %>
+</div>

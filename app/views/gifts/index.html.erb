@@ -1,0 +1,12 @@
+<div class="flex-column">
+  <h1>Selecione o presente que você irá dar</h1>
+  <h3>Assim vamos evitar repetições xD</h3>
+
+  <div class="gifts flex-row" data-controller="gifts">
+    <% @gifts.each do |gift| %>
+      <div class="gift <%= 'gift-selected' if gift.selected %>" data-action="click->gifts#select" data-gift="<%= gift.id %>">
+        <%= gift.name %>
+      </div>
+    <% end %>
+  </div>
+</div>
