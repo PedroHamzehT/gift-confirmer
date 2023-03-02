@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_014352) do
 
   create_table "gifts", force: :cascade do |t|
     t.string "name"
-    t.boolean "selected"
+    t.boolean "selected", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

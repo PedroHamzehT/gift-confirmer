@@ -1,25 +1,99 @@
-.flex-column {
+* {
+  font-family: "Poppins";
+}
+
+body {
+  background: rgb(225, 183, 255);
+  background: linear-gradient(90deg, rgba(225, 183, 255, 1) 0%, rgba(247, 205, 255, 1) 66%, rgba(255, 211, 252, 1) 100%, rgba(208, 208, 208, 1) 100%);
+  color: #383838;
+}
+
+.hidden {
+  display: none;
+}
+
+#content {
+  background: rgba(255, 255, 255, 0.49);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin: 5%;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-}
-
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.gifts {
-  gap: 5px;
-}
-
-.gift {
-  border: 1px solid black;
-  width: 100px;
-  height: 100px;
+  border: 1px solid;
+  border-radius: 20px;
+  width: 200px;
+  margin: 2%;
+  padding-bottom: 1%;
+  background: linear-gradient(90deg, rgba(248, 239, 255, 1) 100%, rgba(255, 255, 255, 1) 100%, rgba(225, 183, 255, 1) 100%, rgba(255, 217, 252, 1) 100%, rgba(56, 56, 56, 1) 100%);
 }
 
 .gift-selected {
-  background: green;
+  background: rgb(98, 204, 126);
+}
+
+button {
+  padding: 0.5rem 1 rem;
+  border-radius: 32px;
+  cursor: pointer;
+  color: #fff;
+  border-color: #fff;
+  color: #383838
+}
+
+button:hover {
+  color: #f0094a;
+  background: transparent;
+  box-shadow: none;
+}
+
+.button:before,
+.button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2px;
+  width: 0;
+  background: #f0094a;
+  box-shadow:
+    -1px -1px 5px 0px #fff,
+    7px 7px 20px 0px #0003,
+    4px 4px 5px 0px #0002;
+  transition: 400ms ease all;
+}
+
+.button:after {
+  right: inherit;
+  top: inherit;
+  left: 0;
+  bottom: 0;
+}
+
+.button:before,
+.button:hover:after {
+  width: 100%;
+  transition: 800ms ease all;
+}
+
+h3 {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.title {
+  text-align: center;
 }

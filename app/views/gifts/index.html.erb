@@ -1,12 +1,16 @@
-<div class="flex-column">
-  <h1>Selecione o presente que você irá dar</h1>
-  <h3>Assim vamos evitar repetições xD</h3>
+<div id="content">
+  <div class="title">
+    <h1>Lista de presentes</h1>
+    <p>Criamos esse site para que os presentes não sejam repetidos, assim você poderá marcar o que irá presentear</p>
+  </div>
 
-  <div class="gifts flex-row" data-controller="gifts">
+  <main class="cards" data-controller="gifts">
     <% @gifts.each do |gift| %>
-      <div id="<%= dom_id gift %>" class="gift<%= ' gift-selected' if gift.selected %>" data-action="click->gifts#select">
-        <%= gift.name %>
+      <div id="<%= dom_id gift %>" class="card<%= ' gift-selected' if gift.selected %>" data-action="click->gifts#select">
+        <h3><%= gift.name %></h3>
+
+        <button class="<%= 'hidden' if gift.selected %>">Selecionar</button>
       </div>
     <% end %>
-  </div>
+  </main>
 </div>

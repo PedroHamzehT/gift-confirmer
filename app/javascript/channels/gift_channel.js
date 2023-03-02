@@ -16,8 +16,10 @@ consumer.subscriptions.create("GiftChannel", {
     const giftElement = document.getElementById(`gift_${data.id}`)
     if (data.selected) {
       giftElement.classList.add('gift-selected')
+      giftElement.querySelector('button').classList.add('hidden')
     } else {
       giftElement.classList.remove('gift-selected')
+      giftElement.querySelector('button').classList.remove('hidden')
     }
   }
 });
