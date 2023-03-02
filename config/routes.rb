@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   get '/list', to: 'gifts#list'
   post '/gifts', to: 'gifts#create'
+  post '/gifts/:id/confirm', to: 'gifts#confirm'
 end

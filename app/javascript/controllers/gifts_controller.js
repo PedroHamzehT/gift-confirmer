@@ -6,7 +6,18 @@ export default class extends Controller {
     console.log('Hello stimulus')
   }
 
-  select() {
-    console.log('Gift selected', this.element.getAttribute('data-gift'))
+  select(event) {
+    const giftId = event.currentTarget.id.replace('gift_', '')
+    const csrfToken = document.querySelector('meta[name=csrf-token]').content
+
+    fetch(`/gifts/${giftId}/confirm`, {
+      method: 'POST',
+      headers: {
+        'X-CSRF-TOKEN': csrfToken
+      }
+    }).then((response) => response.json())
+      .then((data) => {
+        alert(data.message)
+      })
   }
 }

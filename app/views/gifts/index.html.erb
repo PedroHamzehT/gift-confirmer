@@ -4,7 +4,7 @@
 
   <div class="gifts flex-row" data-controller="gifts">
     <% @gifts.each do |gift| %>
-      <div class="gift <%= 'gift-selected' if gift.selected %>" data-action="click->gifts#select" data-gift="<%= gift.id %>">
+      <div id="<%= dom_id gift %>" class="gift<%= ' gift-selected' if gift.selected %>" data-action="click->gifts#select">
         <%= gift.name %>
       </div>
     <% end %>
