@@ -9,7 +9,8 @@ class GiftsController < ApplicationController
 
   def create
     Gift.create!(gift_params)
-    redirect_to '/list'
+
+    render json: {}, status: :created
   end
 
   def confirm

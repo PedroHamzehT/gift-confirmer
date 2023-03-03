@@ -13,4 +13,13 @@
       </div>
     <% end %>
   </main>
+
+  <div class="title">
+    <h2>Se você quiser dar um presente diferente dos acima, escreva uma sugestão aqui em baixo e confirme ela! :)</h2>
+
+    <%= form_with model: Gift.new, url: '/gifts', id: 'suggestion-form' do |form| %>
+      <%= form.text_field :name, placeholder: 'Escreva o presente aqui!' %>
+      <%= form.submit 'Enviar sugestão' %>
+    <% end %>
+  </div>
 </div>

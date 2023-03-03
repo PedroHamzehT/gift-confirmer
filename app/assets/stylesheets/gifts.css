@@ -97,3 +97,25 @@ h3 {
 .title {
   text-align: center;
 }
+
+#suggestion-form {
+  margin-bottom: 25px;
+}
+
+#suggestion-form input {
+  width: 200px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+#suggestion-form input[type=submit] {
+  width: 150px;
+  height: 24px;
+}
+
+@media (max-width: 375px) {
+  #suggestion-form input {
+    margin-bottom: 5px;
+  }
+}

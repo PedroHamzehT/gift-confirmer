@@ -12,9 +12,17 @@ consumer.subscriptions.create("GiftChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    console.log(data)
-    const giftElement = document.getElementById(`gift_${data.id}`)
-    if (data.selected) {
+    if (data.new) {
+      const clone = document.querySelector('div.card').cloneNode(true)
+      clone.querySelector('h3').textContent = data.gift.name
+      clone.id = `gift_${data.gift.id}`
+
+      document.querySelector('main.cards').appendChild(clone)
+      return
+    }
+
+    const giftElement = document.getElementById(`gift_${data.gift.id}`)
+    if (data.gift.selected) {
       giftElement.classList.add('gift-selected')
       giftElement.querySelector('button').classList.add('hidden')
     } else {
