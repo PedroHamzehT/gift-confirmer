@@ -14,13 +14,12 @@ class GiftsController < ApplicationController
 
   def confirm
     gift = Gift.find(params[:id])
+    gift.update(selected: !gift.selected)
 
     if gift.selected
-      render json: { message: 'Esse presente já foi confirmado' }, status: :unprocessable_entity
+      render json: { message: 'Presente confirmado', confirmed: true }, status: :ok
     else
-      gift.update(selected: true)
-
-      render json: { message: 'Presente confirmado' }, status: :ok
+      render json: { confirmed: false }, status: :ok
     end
   end
 

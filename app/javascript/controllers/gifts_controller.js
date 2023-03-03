@@ -10,6 +10,12 @@ export default class extends Controller {
     const giftId = event.currentTarget.id.replace('gift_', '')
     const csrfToken = document.querySelector('meta[name=csrf-token]').content
 
+    if (event.currentTarget.classList.contains('gift-selected')) {
+      const gift = event.currentTarget.querySelector('h3').textContent
+      if (!confirm(`Realmente deseja desconfirmar o presente:\n${gift}`))
+        return
+    }
+
     fetch(`/gifts/${giftId}/confirm`, {
       method: 'POST',
       headers: {
@@ -17,7 +23,7 @@ export default class extends Controller {
       }
     }).then((response) => response.json())
       .then((data) => {
-        alert(data.message)
+        if (data.confirmed) alert(data.message)
       })
   }
 }
